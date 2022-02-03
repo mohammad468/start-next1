@@ -12,17 +12,6 @@ export default function Home() {
           <a className="mx-2">products</a>
         </Link>
       </div>
-      <div className="text-center my-3">
-        <Link href="/products/[title]/[id]" as="/products/product-1/1">
-          <a className="mx-2">product-1</a>
-        </Link>
-        <Link href="/products/[title]/[id]" as="/products/product-1/1">
-          <a className="mx-2">product-2</a>
-        </Link>
-        <Link href="/products/[title]/[id]" as="/products/product-1/1">
-          <a className="mx-2">product-3</a>
-        </Link>
-      </div>
     </div>
   );
 }
