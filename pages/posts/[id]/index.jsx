@@ -17,7 +17,7 @@ const commentsPost = (props) => {
         <h3 className="my-3 text-primary text-center">{props.post.body}</h3>
         <Button>
           <Link href={`${props.params.id}/comments`}>
-            <a className="text-white text-uppercase text-decoration-none ">comments</a>
+            <a className="text-white text-uppercase text-decoration-none ">comment</a>
           </Link>
         </Button>
       </Container>
