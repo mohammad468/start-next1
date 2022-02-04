@@ -1,36 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
+import { Badge } from "react-bootstrap";
 import Link from "next/link";
-import { Container } from "react-bootstrap";
 
 const Index = (props) => {
+  console.log(props.posts);
   return (
     <div>
       <div className="d-flex justify-content-center">
-        <h1>posts</h1>
+        <h1>hello posts</h1>
       </div>
-      <Container>
-        {props.posts.map((post) => {
-          return (
-            <div key={post.id} className="d-flex justify-content-center">
-              <Link href="/posts/[id]" as={`/posts/${post.id}`}>
-                <a className="nav-link">{post.title}</a>
+
+      {props.posts.map((post) => (
+        <div className="d-flex justify-content-center" key={post.id}>
+          <h3>
+            <Badge>
+              <Link href={`posts/${post.id}`}>
+                <a className="text-white text-decoration-none">{post.title}</a>
               </Link>
-            </div>
-          );
-        })}
-      </Container>
-      <Container className="d-flex justify-content-evenly">
-        <Link href="/" as="">
-          <a className="nav-link">back to home</a>
-        </Link>
-      </Container>
+            </Badge>
+          </h3>
+        </div>
+      ))}
     </div>
   );
 };
 
-export async function getStaticProps() {
-  let res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  let posts = await res.json();
+export async function getServerSideProps() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const posts = await res.json();
+  console.log(posts);
 
   return {
     props: {
