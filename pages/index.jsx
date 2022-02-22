@@ -1,23 +1,12 @@
-import Link from "next/link";
-import { Container } from "react-bootstrap";
-
-const Home = (props) => {
+import Counter from "../components/counter/Counter";
+import Login from "../components/login/Login";
+const Home = () => {
   return (
     <div>
-      <div className="d-flex justify-content-center">
-        <h1>HelloWorld</h1>
+      <div className="d-flex justify-content-center flex-column align-items-center">
+        <Counter />
+        <Login />
       </div>
-      <Container className="d-flex justify-content-evenly">
-        <Link href="/about" as="">
-          <a className="nav-link">about</a>
-        </Link>
-        <Link href="/contact" as="">
-          <a className="nav-link">contact</a>
-        </Link>
-        <Link href="/posts" as="">
-          <a className="nav-link">posts</a>
-        </Link>
-      </Container>
     </div>
   );
 };
